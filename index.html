@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Sree Lohith Kola</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#education">Education & Achievements</a></li>
+        <li><a href="#skills">Technical Skills</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#hometown">Hometown</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#text-analyzer">Text Analyzer</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content-area">
+    <header>
+      <img src="images/profile.jpg" alt="Profile Picture" />
+      <div class="info">
+        <h1>Sai Sree Lohith Kola</h1>
+        <p>IIIT-Hyderabad | Full-Stack Developer | Backend Engineer</p>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm a B.Tech CSE student at IIIT-H with a strong background in Full-Stack development, particularly backend engineering, alongside skills in Figma design and business analysis. Born in Andhra Pradesh and raised in the US, I come from a middle-class family and aim to launch multiple startups, building innovative tech-driven solutions that make a lasting impact.
+      </p>
+    </section>
+
+    <section id="education">
+      <h2>Education & Achievements</h2>
+      <ul class="edu-list">
+        <li>B.Tech in Computer Science and Engineering, IIIT-Hyderabad (2024–2028) 📘</li>
+        <li>Vex Robotics PA State Champion 🏅</li>
+        <li>Academic Garnet Honor Roll (4x) 🧠</li>
+        <li>UIL XC District 10 3rd Place – 5K 🏅</li>
+        <li>DECA State Qualifier (STDM) 🏅</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <ul class="skills">
+        <li><img src="icons/html5.svg" alt="HTML logo" title="HTML" />HTML</li>
+        <li><img src="icons/css3.svg" alt="CSS logo" title="CSS" />CSS</li>
+        <li><img src="icons/javascript.svg" alt="JavaScript logo" title="JavaScript" />JavaScript</li>
+        <li><img src="icons/react.svg" alt="React logo" title="React" />React</li>
+        <li><img src="icons/nextdotjs.svg" alt="Next.js logo" title="Next.js" />Next.js</li>
+        <li><img src="icons/cpp.svg" alt="C++ logo" title="C++" />C++</li>
+        <li><img src="icons/python.svg" alt="Python logo" title="Python" />Python</li>
+      </ul>
+    </section>
+
+    <section id="gallery">
+      <h2>My Gallery</h2>
+      <div class="gallery-box">
+        <button id="prevBtn">⟨</button>
+        <img id="slideshow" src="images/gallery/image1.jpg" alt="Gallery" />
+        <button id="nextBtn">⟩</button>
+      </div>
+    </section>
+
+    <section id="hometown">
+      <h2>Where I Grew Up</h2>
+      <div class="hometown-gallery">
+        <img src="images/home1.jpg" alt="Hometown 1" />
+        <img src="images/home2.jpg" alt="Hometown 2" />
+      </div>
+    </section>
+
+    <section id="cv">
+      <h2>My CV</h2>
+      <a href="LohithKolaCV.pdf" target="_blank">Download My CV (PDF)</a>
+    </section>
+
+    <section id="text-analyzer">
+      <h2>Text Analyzer</h2>
+      <textarea id="longText" rows="12" placeholder="Paste long text here..."></textarea><br />
+      <pre id="analysisOutput"></pre>
+      <button onclick="analyzeText()">Analyze Text</button>
+    </section>
+
+    <footer>
+      <p>© 2025 Sai Sree Lohith Kola</p>
+    </footer>
+  </div>
+</body>
+</html>
