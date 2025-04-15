@@ -38,6 +38,15 @@ This website showcases my skills, education, projects, and achievements in a vis
 - HTML5, CSS3 (with custom properties), JavaScript (vanilla)
 - No frameworks or build tools required
 
+## ⚠️ Text Analyzer Assumptions
+
+- **Pronouns:** The tool uses a standard list of English pronouns, including personal, possessive, reflexive, demonstrative, relative, and interrogative forms (e.g., "I", "me", "my", "ourselves", "who", "which").
+- **Prepositions:** The tool uses a common list of English prepositions. "but" is included, as it can act as a preposition in some contexts (e.g., "everyone but me"), though it is more commonly a conjunction.
+- **Articles:** Only "a" and "an" are counted as articles ("the" is not included).
+- **Word counting:** Words are counted using word boundaries (\b\w+\b), so contractions and hyphenated words may be treated as separate words.
+- **Letter counting:** Only alphabetic characters (A-Z, a-z) are counted as letters.
+- **Whitespace:** Spaces and newlines are counted separately.
+
 ## 📝 Customization
 - Update content in the HTML files as needed.
 - Replace images in the `images/` and `icons/` folders.
