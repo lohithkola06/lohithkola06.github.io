@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script defer src="script.js"></script>
+  <title>Text Analyzer | Sai Sree Lohith Kola</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <div class="profile-container">
+      <img src="images/profile.jpg" alt="Profile" class="profile-pic">
+      <div class="intro-text">
+        <h1 class="name">Sai Sree Lohith Kola</h1>
+        <p class="specialization">IIIT-Hyderabad | Full-Stack Developer | Backend Engineer</p>
+      </div>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="education.html" class="nav-link">Education & Achievements</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="cv.html" class="nav-link">CV</a></li>
+        <li><a href="analyzer.html" class="nav-link active">Text Analyzer</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main style="flex: 1 0 auto;">
+    <section class="analyzer-section" style="max-width:900px; margin:2.5rem auto 0 auto;">
+      <h2 class="section-title" style="text-align:center; margin-bottom:1.2rem;"><span class="title-bar"></span> Text Analyzer</h2>
+      <textarea id="text-input" placeholder="Paste or type your text here (10,000+ words supported)..." rows="16" style="width: 100%; margin: 0 auto 1.5rem auto; display: block; font-size: 1.1rem;"></textarea>
+      <button id="analyze-btn" class="primary-btn analyzer-btn" style="margin: 0 auto 2rem auto; display: block; min-width:180px;">Analyze</button>
+      <div id="results" style="max-width: 100%; margin: 0 auto;"></div>
+    </section>
+  </main>
+  <style>
+    .analyzer-table {
+      width: 100%;
+      background: var(--darker-blue, #06182c);
+      color: #eaf6ff;
+      border-radius: 18px;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      box-shadow: 0 2px 16px #02101e33;
+      margin-bottom: 2rem;
+    }
+    .analyzer-table th, .analyzer-table td {
+      padding: 0.85em 1.1em;
+      text-align: left;
+    }
+    .analyzer-table th {
+      background: var(--dark-blue, #0a2236);
+      font-size: 1.1em;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #1565c0;
+    }
+    .analyzer-table td {
+      border-bottom: 1px solid #13345c;
+      font-size: 1em;
+    }
+    .analyzer-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .analyzer-table tr:not(:last-child) td {
+      border-bottom: 1px solid #13345c;
+    }
+    .analyzer-table thead tr:not(:first-child) th {
+      border-top: 2px solid #1565c0;
+    }
+    .analyzer-table tr th[colspan="2"] {
+      border-radius: 0;
+    }
+    .analyzer-btn {
+      background: linear-gradient(90deg, #00a6fb 60%, #1565c0 100%);
+      color: #fff;
+      border: none;
+      border-radius: 32px;
+      font-size: 1.15em;
+      font-weight: 600;
+      padding: 0.85em 2.2em;
+      box-shadow: 0 2px 8px #02101e33;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      cursor: pointer;
+    }
+    .analyzer-btn:hover, .analyzer-btn:focus {
+      background: linear-gradient(90deg, #1565c0 60%, #00a6fb 100%);
+      box-shadow: 0 3px 12px #02101e55;
+      transform: translateY(-2px) scale(1.03);
+    }
+  </style>
+  <footer class="site-footer">
+    <div class="footer-left"> 2025 Sai Sree Lohith Kola</div>
+    <div class="footer-right">
+      <a href="https://github.com/lohithkola06" target="_blank" class="footer-icon" aria-label="GitHub">
+        <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.984-.399 3.003-.404 1.019.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.371.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/lohithkola" target="_blank" class="footer-icon" aria-label="LinkedIn">
+        <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.337-.025-3.065-1.868-3.065-1.868 0-2.154 1.459-2.154 2.965v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.381-1.563 2.845-1.563 3.044 0 3.605 2.004 3.605 4.609v5.587z"/></svg>
+      </a>
+      <a href="https://instagram.com/lohithkola" target="_blank" class="footer-icon" aria-label="Instagram">
+        <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.34 3.608 1.314.974.974 1.252 2.242 1.314 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.34 2.633-1.314 3.608-.974.974-2.242 1.252-3.608 1.314-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.34-3.608-1.314-.974-.974-1.252-2.242-1.314-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.34-2.633 1.314-3.608C4.521 2.573 5.789 2.295 7.155 2.233 8.421 2.175 8.801 2.163 12 2.163zm0-2.163C8.736 0 8.332.013 7.052.072 5.775.131 4.602.428 3.678 1.352c-.924.924-1.221 2.097-1.28 3.374C2.013 5.668 2 6.072 2 12s.013 6.332.072 7.612c.059 1.277.356 2.45 1.28 3.374.924.924 2.097 1.221 3.374 1.28C8.332 23.987 8.736 24 12 24s3.668-.013 4.948-.072c1.277-.059 2.45-.356 3.374-1.28.924-.924 1.221-2.097 1.28-3.374.059-1.28.072-1.684.072-7.612s-.013-6.332-.072-7.612c-.059-1.277-.356-2.45-1.28-3.374-.924-.924-2.097-1.221-3.374-1.28C15.668.013 15.264 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>
+      </a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // --- JS TEXT ANALYZER ---
+    const pronouns = [
+      'i', 'me', 'my', 'mine', 'myself', 'we', 'us', 'our', 'ours', 'ourselves',
+      'you', 'your', 'yours', 'yourself', 'yourselves',
+      'he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself',
+      'it', 'its', 'itself',
+      'they', 'them', 'their', 'theirs', 'themselves',
+      'this', 'that', 'these', 'those', 'who', 'whom', 'whose', 'which', 'what'
+    ];
+    const prepositions = [
+      'about','above','across','after','against','along','among','around','at','before','behind','below','beneath','beside','between','beyond','but','by','concerning','despite','down','during','except','for','from','in','inside','into','like','near','of','off','on','onto','out','outside','over','past','regarding','since','through','throughout','to','toward','under','underneath','until','up','upon','with','within','without'
+    ];
+    const articles = ['a', 'an'];
+
+    function analyzeText(text) {
+      // Letters
+      const letters = (text.match(/[a-zA-Z]/g) || []).length;
+      // Words
+      const words = (text.match(/\b\w+\b/g) || []).length;
+      // Spaces
+      const spaces = (text.match(/ /g) || []).length;
+      // Newlines
+      const newlines = (text.match(/\n/g) || []).length;
+      // Special symbols (not letter, number, space, newline)
+      const specials = (text.match(/[^\w\s\n]/g) || []).length;
+
+      // Tokenize (case insensitive)
+      const tokens = text.toLowerCase().match(/\b\w+\b/g) || [];
+      // Pronoun count
+      const pronounCount = {};
+      pronouns.forEach(p => pronounCount[p] = 0);
+      tokens.forEach(t => { if (pronounCount.hasOwnProperty(t)) pronounCount[t]++; });
+      // Preposition count
+      const prepCount = {};
+      prepositions.forEach(p => prepCount[p] = 0);
+      tokens.forEach(t => { if (prepCount.hasOwnProperty(t)) prepCount[t]++; });
+      // Article count
+      const articleCount = {};
+      articles.forEach(a => articleCount[a] = 0);
+      tokens.forEach(t => { if (articleCount.hasOwnProperty(t)) articleCount[t]++; });
+
+      return { letters, words, spaces, newlines, specials, pronounCount, prepCount, articleCount };
+    }
+
+    document.getElementById('analyze-btn').addEventListener('click', () => {
+      const text = document.getElementById('text-input').value;
+      const r = analyzeText(text);
+      const resultDiv = document.getElementById('results');
+      resultDiv.innerHTML = `
+        <table class="analyzer-table">
+          <thead>
+            <tr><th colspan="2">Basic Counts</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Letters</td><td>${r.letters}</td></tr>
+            <tr><td>Words</td><td>${r.words}</td></tr>
+            <tr><td>Spaces</td><td>${r.spaces}</td></tr>
+            <tr><td>Newlines</td><td>${r.newlines}</td></tr>
+            <tr><td>Special Symbols</td><td>${r.specials}</td></tr>
+          </tbody>
+          <thead>
+            <tr><th colspan="2">Pronouns</th></tr>
+          </thead>
+          <tbody>
+            ${Object.entries(r.pronounCount).filter(([k,v])=>v>0).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('') || '<tr><td colspan="2">None found</td></tr>'}
+          </tbody>
+          <thead>
+            <tr><th colspan="2">Prepositions</th></tr>
+          </thead>
+          <tbody>
+            ${Object.entries(r.prepCount).filter(([k,v])=>v>0).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('') || '<tr><td colspan="2">None found</td></tr>'}
+          </tbody>
+          <thead>
+            <tr><th colspan="2">Indefinite Articles</th></tr>
+          </thead>
+          <tbody>
+            ${Object.entries(r.articleCount).filter(([k,v])=>v>0).map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('') || '<tr><td colspan="2">None found</td></tr>'}
+          </tbody>
+        </table>
+      `;
+    });
+  </script>
+</body>
+</html>

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sai Sree Lohith Kola</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script defer src="script.js"></script>
+  <title>Gallery</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
@@ -18,29 +18,24 @@
     </div>
     <nav class="navbar">
       <ul>
-        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="education.html" class="nav-link">Education & Achievements</a></li>
         <li><a href="skills.html" class="nav-link">Skills</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
         <li><a href="cv.html" class="nav-link">CV</a></li>
         <li><a href="analyzer.html" class="nav-link">Text Analyzer</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section class="about-section" style="margin-top: 0;">
-      <h2 class="section-title"><span class="title-bar"></span> About Me</h2>
-      <p class="about-text">
-        I'm a B.Tech CSE student at IIIT-H with a strong background in Full-Stack development, particularly backend engineering, alongside skills in Figma design and business analysis. Born in Andhra Pradesh and raised in the US, I come from a middle-class family and aim to launch multiple startups, building innovative tech-driven solutions that make a lasting impact.
-      </p>
-    </section>
-    <section class="where-section" style="margin-top: 0;">
-      <h2 class="section-title"><span class="title-bar"></span> Hometowns</h2>
-      <div class="where-images">
-        <img src="images/home1.jpg" alt="Philadelphia" class="where-img" />
-        <img src="images/home2.jpg" alt="Hyderabad Charminar" class="where-img" />
+    <div class="gallery-outer">
+      <h2 class="gallery-title section-title"><span class="title-bar"></span> My Gallery</h2>
+      <div class="gallery-box">
+        <button id="prevBtn" class="gallery-btn gallery-btn-overlay">&#8592;</button>
+        <img id="slideshow" src="images/gallery/image1.jpg" alt="Gallery Image" />
+        <button id="nextBtn" class="gallery-btn gallery-btn-overlay">&#8594;</button>
       </div>
-    </section>
+    </div>
   </main>
   <footer class="site-footer">
     <div class="footer-left"> 2025 Sai Sree Lohith Kola</div>
@@ -56,5 +51,27 @@
       </a>
     </div>
   </footer>
+  <script>
+    let images = [
+      "images/gallery/image1.jpg",
+      "images/gallery/image2.jpg",
+      "images/gallery/image3.jpg",
+      "images/gallery/image4.jpg",
+      "images/gallery/image5.jpg",
+      "images/gallery/image6.jpg",
+      "images/gallery/image11.jpg",
+      "images/gallery/image14.jpg",
+      "images/gallery/image15.jpg"
+    ];
+    let currentImage = 0;
+    document.getElementById("prevBtn").addEventListener("click", function() {
+      currentImage = (currentImage - 1 + images.length) % images.length;
+      document.getElementById("slideshow").src = images[currentImage];
+    });
+    document.getElementById("nextBtn").addEventListener("click", function() {
+      currentImage = (currentImage + 1) % images.length;
+      document.getElementById("slideshow").src = images[currentImage];
+    });
+  </script>
 </body>
 </html>
